@@ -7,7 +7,7 @@ namespace ConsoleApp1
     public interface Item
     {
        public string mName { get; set; }
-       public int Type { get; set; }
+       public Game.Items Type { get; set; }
 
     }
 }

@@ -8,8 +8,10 @@ namespace ConsoleApp1
    
    public class Game
     {
+        
         public enum Items
         {
+        
             IronSword,
             HealingPotion,
         }
@@ -23,28 +25,34 @@ namespace ConsoleApp1
             test5,
             test6,
         }
-
+        
         int a = 1;
+        delegate void Equip();
+        Equip equipment;
+        
         Person person = new Person("Илья", 100, 10);
-        Enemy enemy = new Enemy(50, 15, "Серёжа");
+        Enemy enemy = new Enemy(50, 15, "Серёжа", true);
 
         public List<Item> inv = new List<Item>(new[] { 
             new Potion(10, "Зелье лечения", Items.HealingPotion) 
         });
-
+        
 
         public void startGame()
         {
+            
+            
+
             inv.Add(new Weapon(10, false, "Железный меч", Items.IronSword));
-            commands a = (commands)Enum.Parse(typeof(commands),
-                                  Console.ReadLine());
             
             while (true)
             {
-
+               
+                commands a = (commands)Enum.Parse(typeof(commands),
+                                      Console.ReadLine());
                 //   List<item> inv = new List<item>();
 
-                
+
                 switch (a)
                 {
                    
@@ -52,7 +60,7 @@ namespace ConsoleApp1
                         //addItem(new Potion(10, "Зелье лечения"));
                         foreach(Item o in inv)
                         {
-                            if (o.mName.Equals("Зелье лечения"))
+                            if (o.Type.Equals(Items.HealingPotion))
                             {
                                 Console.WriteLine("ладыва");
                                 continue;
@@ -76,8 +84,19 @@ namespace ConsoleApp1
                         break;
                         case commands.test5:
 
-                          Console.WriteLine(inv[Convert.ToInt32(a)]);
+                        foreach (Item o in inv)
+                        {
+                            if (o.Type == Items.IronSword)
+                            {
+                               
+                                ((Weapon)o).Equip();
+                                Console.WriteLine(o);
+                                
+                                continue;
+                            }
+                        }
                         break;
+                    
                 }
 
             }

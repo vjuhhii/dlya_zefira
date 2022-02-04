@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class Weapon : Item
+  public class Weapon : Item
     {
         public int damage;
         public bool equip;
@@ -14,10 +14,17 @@ namespace ConsoleApp1
             this.damage = damage;
             this.equip = equip;
             this.mName = name;
-            this.Type = (int)type;
+            this.Type = type;
         }
 
         public string mName { get ; set ; }
-        public int Type { get ; set ; }
+        public Game.Items Type { get ; set ; }
+
+         public void Equip() => equip = true;
+        
+            
+             
+        
     }
+
 }

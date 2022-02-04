@@ -6,11 +6,13 @@ namespace ConsoleApp1
 {
     class Enemy : IActor
     {
-        public Enemy(int hp, int damage, string name)
+        bool active;
+        public Enemy(int hp, int damage, string name, bool active)
         {
             this.hp = hp;
             this.damage = damage;
             this.name = name;
+            this.active = active;
         }
 
         public int hp { get ; set ; }
