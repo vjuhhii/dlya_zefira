@@ -9,14 +9,22 @@ namespace ConsoleApp1
         public int damage;
         public bool equip;
 
-        public Weapon(int damage, string name, Game.Items type)
+        public Weapon(int damage, bool equip, string name, Game.Items type)
         {
             this.damage = damage;
+            this.equip = equip;
             this.mName = name;
             this.Type = type;
         }
 
         public string mName { get ; set ; }
         public Game.Items Type { get ; set ; }
+
+         public void Equip() => equip = true;
+        
+            
+             
+        
     }
+
 }
