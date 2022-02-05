@@ -12,7 +12,7 @@ namespace ConsoleApp1
         public Potion(int heal, string name, Game.Items type)
         {
             this.heal = heal;
-            this.mName = name;
+            this.mName = name; 
             this.Type = type;
         }
 

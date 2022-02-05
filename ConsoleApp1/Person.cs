@@ -17,7 +17,7 @@ namespace ConsoleApp1
         {
             this.damage = damage;
             this.hp = hp;
-            this.name = name;
+            this.name = name; 
         }
 
         public void addWeaponRightHand(Item item) 

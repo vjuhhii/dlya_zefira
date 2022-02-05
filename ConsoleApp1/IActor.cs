@@ -7,7 +7,7 @@ namespace ConsoleApp1
     public interface IActor
     {
         int hp { get; set; }
-        int damage { get; set; }
+        int damage { get; set; } 
         string name { get; set; }        
     }
 }

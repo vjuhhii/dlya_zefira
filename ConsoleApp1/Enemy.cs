@@ -6,7 +6,7 @@ namespace ConsoleApp1
 {
     class Enemy : IActor
     {
-        bool active;
+        bool active; 
         public Enemy(int hp, int damage, string name, bool active)
         {
             this.hp = hp;

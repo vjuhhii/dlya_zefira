@@ -64,7 +64,7 @@ namespace ConsoleApp1
                         foreach (Item o in inv)
                         {
                             Console.WriteLine(o.mName);
-                        }
+                        } 
                         break;
                     case Commands.test4:
                         Console.WriteLine(person.hp + "\n" + person.damage);
