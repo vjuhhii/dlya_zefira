@@ -11,12 +11,11 @@ namespace ConsoleApp1
         
         public enum Items
         {
-        
             IronSword,
             HealingPotion,
         }
         
-        public enum commands
+        public enum Commands
         {
             test,
             test2,
@@ -26,7 +25,6 @@ namespace ConsoleApp1
             test6,
         }
         
-        int a = 1;
         delegate void Equip();
         Equip equipment;
         
@@ -40,24 +38,16 @@ namespace ConsoleApp1
 
         public void startGame()
         {
-            
-            
-
-            inv.Add(new Weapon(10, false, "Железный меч", Items.IronSword));
+            inv.Add(new Weapon(10, "Железный меч", Items.IronSword));
             
             while (true)
             {
-               
-                commands a = (commands)Enum.Parse(typeof(commands),
+                Commands command = (Commands)Enum.Parse(typeof(Commands),
                                       Console.ReadLine());
-                //   List<item> inv = new List<item>();
 
-
-                switch (a)
+                switch (command)
                 {
-                   
-                    case commands.test:
-                        //addItem(new Potion(10, "Зелье лечения"));
+                    case Commands.test:
                         foreach(Item o in inv)
                         {
                             if (o.Type.Equals(Items.HealingPotion))
@@ -66,31 +56,27 @@ namespace ConsoleApp1
                                 continue;
                             }
                         }
-                       // if (inv.Contains(new Potion(10, "Зелье лечения"))) Console.WriteLine("да)
                         break;
-                     
-
-                    case commands.test2:
+                    case Commands.test2:
                         Console.WriteLine(person.hp);
                         break;
-                    case commands.test3:
+                    case Commands.test3:
                         foreach (Item o in inv)
                         {
                             Console.WriteLine(o.mName);
                         }
                         break;
-                    case commands.test4:
+                    case Commands.test4:
                         Console.WriteLine(person.hp + "\n" + person.damage);
                         break;
-                        case commands.test5:
+                        case Commands.test5:
 
-                        foreach (Item o in inv)
+                        foreach (Item item in inv)
                         {
-                            if (o.Type == Items.IronSword)
+                            if (item.Type == Items.IronSword)
                             {
-                               
-                                ((Weapon)o).Equip();
-                                Console.WriteLine(o);
+                                person.addWeaponRightHand(item)
+                                Console.WriteLine(person.getDamage);
                                 
                                 continue;
                             }
@@ -101,17 +87,16 @@ namespace ConsoleApp1
 
             }
         }
-         public void addItem(Item item)
+
+        public void addItem(Item item)
         {
             inv.Add(item);
             Console.WriteLine("Добавился новый предмет");
         }
-         public void removeItem(Item item)
+        public void removeItem(Item item)
         {
             inv.Remove(item);
         }
 
     }
 }
-    
-
